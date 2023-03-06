@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Router from "./Router";
+import Router from "components/Router";
+import firebase from "../fbinstance";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

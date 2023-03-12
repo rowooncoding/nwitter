@@ -1,9 +1,16 @@
+import { dbCollection, dbService } from "\bfBase";
+
 import { useState } from "react";
+import { dbAddDoc } from "../fBase";
 
 export default function Home() {
   const [nweet, setNweet] = useState("");
   const onSubmit = (e) => {
     e.preventDefault();
+    dbAddDoc(dbCollection(dbService, "nweets"), {
+      nweet,
+      createdAt: Date.now(),
+    });
   };
   const onChange = (e) => {
     const {

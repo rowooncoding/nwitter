@@ -11,6 +11,7 @@ export default function Home() {
       nweet,
       createdAt: Date.now(),
     });
+    setNweet("");
   };
   const onChange = (e) => {
     const {

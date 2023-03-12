@@ -1,10 +1,19 @@
 import { dbCollection, dbService } from "\bfBase";
+import { getDocs, query } from "firebase/firestore";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { dbAddDoc } from "../fBase";
 
 export default function Home() {
   const [nweet, setNweet] = useState("");
+  const [nweets, setNweets] = useState([]);
+  const getNweets = async () => {
+    const dbNweets = await getDocs(dbCollection(dbService, "nweets"));
+    dbNweets.forEach((document) => console.log(document.data()));
+  };
+  useEffect(() => {
+    getNweets();
+  }, []);
   const onSubmit = async (e) => {
     e.preventDefault();
     await dbAddDoc(dbCollection(dbService, "nweets"), {

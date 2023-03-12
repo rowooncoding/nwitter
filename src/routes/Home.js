@@ -5,9 +5,9 @@ import { dbAddDoc } from "../fBase";
 
 export default function Home() {
   const [nweet, setNweet] = useState("");
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    dbAddDoc(dbCollection(dbService, "nweets"), {
+    await dbAddDoc(dbCollection(dbService, "nweets"), {
       nweet,
       createdAt: Date.now(),
     });

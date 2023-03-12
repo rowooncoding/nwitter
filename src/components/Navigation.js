@@ -1,1 +1,3 @@
-export default function Navigation() {}
+export default function Navigation() {
+  return <nav>lalala</nav>;
+}
